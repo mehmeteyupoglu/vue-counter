@@ -2,8 +2,10 @@
   <b-container class="bv-example-row">
   <b-row>
     <b-col>
-      <b-button variant="danger">Button</b-button>
-      <b-button variant="success">Button</b-button>
+      <h1> {{ counterValue }}</h1>
+      <b-button @click="decrement" variant="danger">Decrement</b-button>
+      <b-button @click="increment" variant="success">Increment</b-button>
+      
     </b-col>
   </b-row>
 </b-container>
@@ -11,7 +13,25 @@
 
 <script>
 export default {
-  name: 'Counter'
+  name: 'Counter', 
+  data(){
+    return {
+      counterValue : 0
+    }
+  }, 
+  methods: {
+    increment(){
+      this.counterValue++
+    }, 
+    decrement(){
+    if(this.counterValue >= 1){
+      this.counterValue--
+    } else {
+      this.counterValue
+    }
+    
+    } 
+  }
 }
 </script>
 
